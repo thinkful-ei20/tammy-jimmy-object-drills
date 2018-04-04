@@ -7,6 +7,12 @@ const scratchData = [
 ];
 
 function findById(items, idNum) {
+  // items.forEach(function(element) {
+  //   if(element.id === idNum){
+  //     return element;
+  //   }
+  // });
+  
   for(let i = 0; i < items.length; i++){
     if(items[i].id === idNum){
       return items[i];
