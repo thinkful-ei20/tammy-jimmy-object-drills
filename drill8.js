@@ -22,11 +22,8 @@ function findOne(arr, query){
     //loop thru the keys in the query to compare to arr[i]
     for(let j = 0; j < qKeys.length; j++){ 
       
-      //if the current query key isn't in arr[i] then its not a match, match = false
-      //if the keys do match check if the values match. if they dont then, match = false
-      if(!(qKeys[j] in arr[i])){
-        match = false;
-      }else if(query[qKeys[j]] !== arr[i][qKeys[j]]){
+      //if the current query key isn't in arr[i] or the values don't match then its not a match, match = false
+      if(!(qKeys[j] in arr[i]) || query[qKeys[j]] !== arr[i][qKeys[j]]){
         match = false;
       }
 

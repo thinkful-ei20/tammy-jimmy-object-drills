@@ -21,9 +21,7 @@ const Database = {
 
       for(let j = 0; j < qKeys.length; j++){
 
-        if(!(qKeys[j] in this.store.heroes[i])){
-          match = false;
-        }else if(query[qKeys[j]] !== this.store.heroes[i][qKeys[j]]){
+        if(!(qKeys[j] in this.store.heroes[i]) || query[qKeys[j]] !== this.store.heroes[i][qKeys[j]]){
           match = false;
         }
 
@@ -40,4 +38,26 @@ const Database = {
 
 
 
-console.log(Database.findOne({ id: 2 }));
+
+const exampleQuery0 = {
+  //empty object
+};//should return Capt America
+
+const exampleQuery1 = {
+  squad: 'Avengers',
+};//should return Capt America
+
+const exampleQuery2 = {
+  id: 3, 
+  squad: 'Avengers'
+};//should return Sipderman
+
+const exampleQuery3 = {
+  id: 6, 
+  squad: 'Avengers'
+};//should return null
+
+console.log(Database.findOne(exampleQuery0));
+console.log(Database.findOne(exampleQuery1));
+console.log(Database.findOne(exampleQuery2));
+console.log(Database.findOne(exampleQuery3));
