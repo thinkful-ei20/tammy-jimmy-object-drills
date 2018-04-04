@@ -19,7 +19,7 @@ function updateObject(obj) {
   var newObj = updateObject(oldObj);
   if (typeof newObj !== 'object') { 
     console.error('ERROR: `createMyObject` must return an object');
-    return false
+    return false;
   }
   ['foo', 'bar', 'bizz', 'bang'].forEach(function(key) {
     if (!(key in newObj)) {
